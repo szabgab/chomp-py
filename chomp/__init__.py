@@ -1,2 +1,2 @@
-from chomp.game import play
+from chomp import game
 
