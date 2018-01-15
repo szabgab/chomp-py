@@ -13,3 +13,6 @@ def test_chomp():
     assert  set([(1, 1), (2, 1)]) == set(chomp.game.get_moves([1, 1]))
     assert  set([(1, 1), (2, 1), (1, 2)]) == set(chomp.game.get_moves([2, 1]))
     assert  set([(1, 1), (2, 1), (1, 2), (2, 2)]) == set(chomp.game.get_moves([2, 2]))
+
+
+    assert  [2, 1] == chomp.game.move([2, 2], (2, 2))
