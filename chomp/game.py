@@ -33,10 +33,24 @@ def move(rows, this_move):
             new_rows.append(m_col-1)
         else:
             new_rows.append(rows[row - 1])
-    return new_rows
+    return tuple(new_rows)
+
+situations = {}
+situations[ (1,) ] = 'L'
 
 
+# find all the possible moves, if any of them leads to a Losing situation then this is a Winning situation
+# Otherwise it is itself a Losing situation
 def get_situation(rows):
-    if rows == [1]:
-        return 'L'
-    return 'W'
+    if rows in situations:
+        return situations[rows]
+    for this_move in get_moves(rows):
+        new_rows = move(rows, this_move)
+        if new_rows not in situations:
+            situations[new_rows] = get_situation(new_rows)
+
+        if situations[new_rows] == 'L':
+            situations[rows] = 'W'
+            return 'W'
+    return 'L'
+
