@@ -44,3 +44,9 @@ we are again in a similar situation. Having a single chocolate is a losing situa
  
 A full NxN (N > 1 )is a winning situation as one can take (2,2) and get to the previous construct.
 
+
+Try:
+
+```
+python chomp/game.py 3 5
+```

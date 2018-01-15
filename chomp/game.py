@@ -63,3 +63,16 @@ def get_situation(rows):
     #print("Response is {}".format(situations[rows]))
     return situations[rows]
 
+
+def show_losing_situations(cols_n, rows_n):
+    starting_rows = tuple([cols_n] * rows_n)
+    situation = get_situation(starting_rows)
+    print("This is a {} gane for the first mover".format(situation))
+    print("You need to reach one of the following situations and then stick to these situations in order to win the game.")
+    for rows in situations:
+        if situations[rows] == 'L':
+            print(rows)
+
+if __name__ == '__main__':
+    import sys
+    show_losing_situations(int(sys.argv[1]), int(sys.argv[2]))
